@@ -1,1 +1,8 @@
 .venv
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Môi trường ảo và cache pytest
+.venv/
+.pytest_cache/
