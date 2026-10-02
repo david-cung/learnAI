@@ -13,6 +13,7 @@ def client(tmp_path, monkeypatch):
         yield test_client
 
 def test_create_and_get_ticket(client):
+
     payload = {
         "customer_id": "test",
         "subject": "Test Ticket",
@@ -30,3 +31,8 @@ def test_create_and_get_ticket(client):
     assert response.status_code == 200
     retrieved = response.json()
     assert retrieved["id"] == ticket_id
+
+def test_get_not_found_ticket(client):
+    response = client.get("tickets/9999")
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Ticket not found"}
