@@ -7,5 +7,5 @@ class TicketCreate(BaseModel):
     description: str = Field(min_length=10)
     status: Literal['open', 'closed'] = 'open'
 
-class TicketUpdate(BaseModel):
+class TicketStatusUpdate(BaseModel):
     status: Literal['open', 'closed']

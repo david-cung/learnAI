@@ -9,7 +9,7 @@ def connect_db():
     return con
 
 def init_db():
-    conn = sqlite3.connect(DB_Path)
+    conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     try:
         cursor.execute('''
