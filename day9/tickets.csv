@@ -1,0 +1,8 @@
+ticket_id,subject,description,attachment_count,waiting_minutes,category
+101,Không đăng nhập được,Tôi nhập đúng mật khẩu nhưng hệ thống báo lỗi.,1,30,technical
+102,Yêu cầu hoàn tiền,Tôi muốn hoàn tiền cho đơn hàng vừa thanh toán.,0,180,billing
+103,Ứng dụng bị treo,Ứng dụng bị treo khi tôi tải lên tệp đính kèm.,3,1440,technical
+104,Cập nhật email,Tôi muốn đổi địa chỉ email của tài khoản.,0,10,account
+105,Thanh toán bị lỗi,Tôi đã bị trừ tiền nhưng đơn hàng chưa được xác nhận.,1,90,
+106,Không nhận được mã OTP,,0,60,technical
+101,Không đăng nhập được,Tôi nhập đúng mật khẩu nhưng hệ thống báo lỗi.,1,30,technical
