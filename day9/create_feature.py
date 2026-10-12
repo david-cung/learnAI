@@ -37,3 +37,15 @@ print("\n nX shape:", X.shape)
 
 feature_df[feature_column]
 
+feature_df["category"] = ["hardware", "billing", "account"]
+
+y = feature_df["category"].to_numpy()
+print("\ny:")
+print(y)
+print("\ny shape:", y.shape)
+
+feature_df.to_csv("ticket_features.csv", index=False)
+
+print("\n feature first ticket", X[0])
+
+
