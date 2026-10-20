@@ -1,20 +1,51 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+
 
 data = [
-    ("Computer not starting", "hardware"),
-    ("Screen is broken", "hardware"),
-    ("Keyboard is not working", "hardware"),
-    ("Mouse is not working", "hardware"),
+    ("The computer will not start", "hardware"),
+    ("The monitor is broken", "hardware"),
+    ("The keyboard is not working", "hardware"),
+    ("The computer mouse is faulty", "hardware"),
 
-    ("Request for refund", "billing"),
-    ("charge twice", "billing"),
-    ("Hóa đơn thanh toán bị sai", "billing"),
-    ("Cần kiểm tra phí thanh toán", "billing"),
+    ("I want a refund for my order", "billing"),
+    ("I was charged twice", "billing"),
+    ("The payment invoice is incorrect", "billing"),
+    ("Please check the payment fee", "billing"),
 
-    ("Không đăng nhập được tài khoản", "account"),
-    ("Tôi quên mật khẩu tài khoản", "account"),
-    ("Cần thay đổi email tài khoản", "account"),
-    ("Tài khoản của tôi bị khóa", "account"),
+    ("I cannot log into my account", "account"),
+    ("I forgot my account password", "account"),
+    ("I need to change my account email", "account"),
+    ("My account has been locked", "account"),
 ]
+
+df = pd.DataFrame(
+    data,
+    columns=["description", "category"],
+)
+
+print(df)
+print("\n Ticket each category:")
+print(df["category"].value_counts())
+
+texts = df["description"]
+labels = df["category"]
+
+train_texts, test_texts, train_labels, test_labels = train_test_split(
+    texts, labels, test_size=0.2, random_state=42, stratify=labels,
+)
+
+vectorizer = CountVectorizer()
+
+X_train = vectorizer.fit_transform(train_texts)
+X_test = vectorizer.transform(test_texts)
+
+
+model = MultinomialNB()
+
+model.fit(X_train, train_labels)
+print("\nModel trained successfully.")
+
 
